@@ -1,0 +1,57 @@
+extends ../shared/template
+
+block content
+  #new-task
+    h4 New Task Entry
+    form(method='POST', action='/tasks')
+      input(type='text', name='title', placeholder='Title', autofocus='true')
+      input(type='date', name='due', placeholder="Date (mm/dd/yyyy)")
+      div
+        select(name='priorityId')
+          each priority in priorities
+            option(value=priority._id)= priority.name
+        button Add
+      .clear
+
+  #container
+
+        each task in tasks
+          div(class=task.isComplete ? 'done':'ongoing')
+            .task-wrapper(style='border-bottom:4px solid #{task.priority.color}')
+              .task-checkbox
+                form.task(method='POST', action='/tasks/#{task._id}')
+                  input(type='hidden', name='_method', value='PUT')
+                  div.custom-checkbox
+                    input(type='checkbox', id='#{task.title}', checked=task.isComplete)
+                    label(for='#{task.title}')
+              .task-info
+                h3= task.title
+                .urgency(style='background-color: #{task.priority.color}')= task.priority.name
+                .due
+                  p Due: #{task.due.toDateString()}
+              .task-delete
+                form(method='POST', action='/tasks/#{task._id}')
+                  input(type='hidden', name='_method', value='DELETE')
+                  button
+                    i.fa.fa-trash-o
+              .clear
+
+
+
+
+          //- tr(class=task.isComplete ? 'done':'ongoing')
+          //-   td
+          //-     form.task(method='POST', action='/tasks/#{task._id}')
+          //-       input(type='hidden', name='_method', value='PUT')
+          //-       div.custom-checkbox
+          //-         input(type='checkbox', id='#{task.title}', checked=task.isComplete)
+          //-         label(for='#{task.title}')
+          //-
+          //-   td= task.title
+          //-   td= task.due.toDateString()
+          //-   td(style='background-color: #{task.priority.color}')
+          //-     a(href='/tasks/filter/#{task.priorityId}')= task.priority.name
+          //-   td.delete
+          //-     form(method='POST', action='/tasks/#{task._id}')
+          //-       input(type='hidden', name='_method', value='DELETE')
+          //-       button Decimate

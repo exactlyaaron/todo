@@ -1,0 +1,498 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700,300);
+
+*:focus{
+  outline:none;
+}
+
+body, html {
+  background-image:url(/img/bg.png);
+  font-family: 'Open Sans', sans-serif;
+  color:#444;
+  height:100%;
+}
+
+.clear {
+  width:100%;
+  clear:both;
+}
+
+header {
+  height:65px;
+  background-color:#333;
+  color:#fff;
+  text-align:center;
+  position:relative;
+  z-index:5;
+
+  #header-content {
+    width:90%;
+    margin:0 auto;
+  }
+}
+
+#logo{
+    padding-top:15px;
+    display:inline-block;
+
+  img{
+    width:180px;
+    height:auto;
+  }
+}
+
+#nav-link {
+  float:left;
+  padding-top:10px;
+  a {
+    color:#fff;
+    font-size:30px;
+  }
+}
+
+#filter-link {
+  float:right;
+  padding-top:10px;
+  margin-left:10px;
+
+  a {
+    color:#fff;
+    font-size:30px;
+  }
+}
+
+#new-task {
+  background-color: #444;
+  width:100%;
+  text-align:center;
+  padding:10px 0 5px 0;
+  box-shadow: inset 0px 2px 3px #000;
+
+  h4 {
+    color:#fff;
+    font-weight:300;
+    font-size: 28px;
+    margin:10px 0;
+  }
+
+  input {
+    border:none;
+    padding:5px;
+    border-radius:3px;
+  }
+
+  input, div {
+    display:block;
+    width:50%;
+    padding:10px;
+    min-width:250px;
+    margin:20px auto;
+  }
+
+  div select {
+    width:45%;
+    float:left;
+  }
+
+  div button {
+    width:45%;
+    float:right;
+    padding:5px;
+    color:#fff;
+    border-radius:3px;
+    border:2px solid #333;
+    background: #444;
+  }
+
+  div button:hover {
+    background: #222;
+    border:2px solid #222;
+  }
+}
+
+#container {
+  width: 90%;
+  margin:0 auto;
+  padding-bottom:50px;
+}
+
+#centerme {
+  position:relative;
+  height:100%;
+  text-align:center;
+  padding-top:5%;
+  width:80%;
+  margin:0 auto;
+
+  a {
+    text-decoration:none;
+    color:#fff;
+    background-color:#6bc45a;
+    padding:10px 25px;
+    border-radius:3px;
+    font-size:20px;
+  }
+}
+
+img.center {
+	height: 300px;
+  margin:0 auto;
+  display:block;
+
+}
+
+h1 {
+  color: #444;
+  text-shadow: 0px 1px 0px #ccc;
+  text-align:center;
+  margin-top:10px;
+}
+
+table#priorities {
+  width:100%;
+
+  tr{
+    height:25px;
+
+    td {
+      padding:10px;
+    }
+  }
+}
+
+table#tasks {
+  margin-top: 15px;
+
+  td{
+    padding:10px;
+    border:1px solid #444;
+  }
+
+  td.delete{
+    border:0px solid #444;;
+  }
+}
+
+.done {
+  opacity:0.4;
+  h3, p {
+    text-decoration:line-through;
+  }
+}
+
+.task-wrapper {
+  width:100%;
+  margin:0 auto;
+  padding:0 0 15px 0;
+  position:relative;
+
+  .task-checkbox {
+    width:40px;
+    padding-top:30px;
+    margin-right:5%;
+    float:left;
+    display:inline-block;
+    text-align:center;
+  }
+
+  .task-delete {
+    width:40px;
+    position:absolute;
+    right:0;
+    top:30px;
+    display:inline-block;
+    text-align:center;
+    clear:both;
+
+    button {
+      background:transparent;
+      border:none;
+      font-size:26px;
+      padding:0;
+      margin:0;
+    }
+  }
+
+  .task-info {
+    width:75%;
+    display:inline-block;
+    float:none;
+    padding:15px 0 0 0;
+    margin:0 auto;
+
+    h3 {
+      margin:0;
+      padding:0px 0 5px 0;
+      font-size:20px;
+      font-weight:600;
+      line-height:24px;
+    }
+  }
+
+  .urgency {
+    display:inline-block;
+    border-radius:3px;
+    padding:6px 10px;
+    color:#fff;
+    text-shadow:0px 1px 1px #333;
+    margin-right:10px;
+    line-height:13px;
+
+  }
+
+  .due {
+    display:inline-block;
+    padding:5px;
+    color:#333;
+
+    p {
+      font-size:12px;
+      display:inline;
+      line-height:9px;
+      margin:0;
+      padding:0;
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+
+  }
+
+}
+
+
+
+
+.custom-checkbox {
+	position: relative;
+  padding:5px;
+
+  label {
+    cursor: pointer;
+	  position: absolute;
+	  width: 30px;
+	  height: 30px;
+	  top: 0;
+  	left: 0;
+	  background: #fff;
+	  border:1px solid #ddd;
+    border-radius:50%;
+  }
+
+  label:after {
+    opacity: 0.0;
+    padding-top:1px;
+  	content: '';
+  	position: absolute;
+  	width: 12px;
+  	height: 5px;
+  	background: #fff;
+  	top: 8px;
+  	left: 6px;
+  	border: 5px solid #57d465;
+  	border-top: none;
+  	border-right: none;
+
+  	-webkit-transform: rotate(-45deg);
+  	-moz-transform: rotate(-45deg);
+  	-o-transform: rotate(-45deg);
+  	-ms-transform: rotate(-45deg);
+  	transform: rotate(-45deg);
+  }
+
+
+  input[type=checkbox]:checked + label:after {
+    opacity: 1;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General styles for all menus */
+.cbp-spmenu {
+	background: #555;
+	position: fixed;
+}
+
+.cbp-spmenu h3 {
+	color: #fff;
+	font-size: 1.9em;
+	padding: 20px;
+	margin: 0;
+	font-weight: 300;
+	background: #444;
+}
+
+.cbp-spmenu a {
+	display: block;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: 300;
+  text-decoration:none;
+}
+
+.cbp-spmenu a.filter-priority {
+  padding: 10px 0 10px 35px;
+  font-size:14px;
+  font-weight:600;
+  background: #444;
+}
+
+.cbp-spmenu a:hover {
+	background: #333;
+}
+
+.cbp-spmenu a:active {
+	background: #111;
+	color: #fff;
+}
+
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical {
+	width: 240px;
+	height: 100%;
+	top: 0;
+	z-index: 1000;
+}
+
+.cbp-spmenu-vertical a {
+	border-bottom: 1px solid #444;
+	padding: 1em;
+}
+
+
+/* Vertical menu that slides from the left or right */
+
+.cbp-spmenu-left {
+	left: -240px;
+}
+
+.cbp-spmenu-right {
+	right: -240px;
+}
+
+.cbp-spmenu-left.cbp-spmenu-open {
+	left: 0px;
+}
+
+.cbp-spmenu-right.cbp-spmenu-open {
+	right: 0px;
+}
+
+/* Horizontal menu that slides from the top or bottom */
+
+.cbp-spmenu-top {
+	top: -150px;
+}
+
+.cbp-spmenu-bottom {
+	bottom: -150px;
+}
+
+.cbp-spmenu-top.cbp-spmenu-open {
+	top: 0px;
+}
+
+.cbp-spmenu-bottom.cbp-spmenu-open {
+	bottom: 0px;
+}
+
+/* Push classes applied to the body */
+
+.cbp-spmenu-push {
+	overflow-x: hidden;
+	position: relative;
+	left: 0;
+}
+
+.cbp-spmenu-push-toright {
+	left: 240px;
+}
+
+.cbp-spmenu-push-toleft {
+	left: -240px;
+}
+
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+/* Example media queries */
+
+@media screen and (max-width: 55.1875em){
+
+	#logo{
+
+    padding-top:20px;
+    padding-left:20px;
+
+   img{
+     width:120px;
+     height:auto;
+   }
+ }
+
+  .cbp-spmenu-horizontal {
+		font-size: 75%;
+		height: 110px;
+	}
+
+	.cbp-spmenu-top {
+		top: -110px;
+	}
+
+	.cbp-spmenu-bottom {
+		bottom: -110px;
+	}
+
+}
+
+@media screen and (max-height: 26.375em){
+
+
+  .cbp-spmenu-vertical {
+		font-size: 90%;
+		width: 190px;
+	}
+
+	.cbp-spmenu-left,
+	.cbp-spmenu-push-toleft {
+		left: -190px;
+	}
+
+	.cbp-spmenu-right {
+		right: -190px;
+	}
+
+	.cbp-spmenu-push-toright {
+		left: 190px;
+	}
+}
+
+
+@media all and (max-width: 400px) and (min-width: 0px) {
+  .task-wrapper .due {
+    display:none;
+  }
+
+}

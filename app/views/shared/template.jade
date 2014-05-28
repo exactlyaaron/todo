@@ -2,11 +2,42 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     title= title
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
-  body
+    link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', rel='stylesheet')
+
+  body.cbp-spmenu-push
+    nav#cbp-spmenu-s1.cbp-spmenu.cbp-spmenu-vertical.cbp-spmenu-left
+        a(href='/') Home
+        a(href='/tasks') Tasks
+        a(href='/priorities') Priorities
+
+    nav#cbp-spmenu-s2.cbp-spmenu.cbp-spmenu-vertical.cbp-spmenu-right
+      h3 Filter By:
+      a(href='/tasks/sort/title') Title
+      a(href='#') Priority
+      each priority in priorities
+        a.filter-priority(href='/tasks/filter/#{priority._id}', style='border-bottom:3px solid #{priority.color}') #{priority.name}
+      a(href='/tasks/sort/date') Due Date
+
+    header
+      #header-content
+        #nav-link
+          a#showLeftPush(href='#')
+            i.fa.fa-bars
+        #logo
+          a(href='/')
+            img(src='/img/logo.svg')
+        #filter-link
+          a#showRightPush(href='#')
+            i.fa.fa-search
+        #filter-link
+          a.add-task(href='#')
+            i.fa.fa-pencil
+
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
@@ -14,7 +45,11 @@ html
     script(src='/js/vendor/moment-2.6.0.js')
     script(src='/js/vendor/buttons.js')
     script(src='/js/vendor/traceur.js')
+    script(src='/js/vendor/classie.js')
+    script(src='/js/vendor/modernizr.custom.js')
     script(src='/js/es5/main.js')
     script(src='/js/es6/compiled/main.js')
+
+
 
     block scripts
