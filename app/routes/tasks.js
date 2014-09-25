@@ -42,7 +42,7 @@ exports.filter = (req, res)=>{
   tasks.find({priorityId: _pid}).toArray((err, tasks)=>{
     priorities.find().toArray((err, priorities)=>{
 
-      tasks = tasks.map(ta  sk => {
+      tasks = tasks.map(task => {
         task.priority = _(priorities).find(pri => {
           return pri._id.toString() === task.priorityId.toString();
         });
